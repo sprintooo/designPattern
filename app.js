@@ -5,9 +5,10 @@ const SOURCE_PREFIX = 'src/main/java/org/patidar/';
 const API_BASE = `https://api.github.com/repos/${OWNER}/${REPO}`;
 
 async function fetchTree() {
-  const res = await fetch(`${API_BASE}/git/trees/${BRANCH}?recursive=1`);
-  if (!res.ok) throw new Error(`GitHub API ${res.status}`);
+  const res  = await fetch(`${API_BASE}/git/trees/${BRANCH}?recursive=1`);
   const data = await res.json();
+  if (!res.ok) throw new Error(data.message || `GitHub API ${res.status}`);
+  if (data.truncated) console.warn('Tree response was truncated by GitHub API');
   return data.tree
     .filter(item => item.type === 'blob' && item.path.startsWith(SOURCE_PREFIX) && item.path.endsWith('.java'))
     .map(item => item.path);
@@ -114,7 +115,7 @@ async function init() {
   try {
     const paths = await fetchTree();
     if (paths.length === 0) {
-      navTree.innerHTML = '<div class="error-msg">No Java files found.</div>';
+      navTree.innerHTML = '<div class="error-msg">No Java files found in the repository.</div>';
       return;
     }
     navTree.innerHTML = renderTree(buildTreeObject(paths), 0);
@@ -125,7 +126,13 @@ async function init() {
     const first = navTree.querySelector('.file');
     if (first) openFile(first.dataset.path);
   } catch (err) {
-    navTree.innerHTML = `<div class="error-msg">Failed to load: ${err.message}</div>`;
+    navTree.innerHTML = `
+      <div class="error-msg">
+        <strong>Could not load patterns</strong><br><br>
+        ${err.message}<br><br>
+        <small>This is usually a GitHub API rate limit (60 req/hr for unauthenticated requests).
+        Wait a minute and refresh.</small>
+      </div>`;
   }
 }
 
