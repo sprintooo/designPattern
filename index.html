@@ -3,82 +3,255 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design Patterns — Patidar</title>
+  <title>Design Patterns — From Fundamentals to Production</title>
+  <meta name="description" content="Learn the most important software design patterns through simple explanations, visual diagrams, practical examples, and production-oriented use cases.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app">
 
-  <!-- ── Sidebar ─────────────────────────────────────────── -->
-  <aside id="sidebar">
+<div id="nav-placeholder"></div>
 
-    <header id="sb-head">
-      <div class="sb-logo">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <rect x="2" y="2" width="7" height="7" rx="1.5" fill="#818cf8"/>
-          <rect x="11" y="2" width="7" height="7" rx="1.5" fill="#a78bfa" opacity=".7"/>
-          <rect x="2" y="11" width="7" height="7" rx="1.5" fill="#a78bfa" opacity=".7"/>
-          <rect x="11" y="11" width="7" height="7" rx="1.5" fill="#818cf8" opacity=".5"/>
-        </svg>
-        <div class="sb-title-group">
-          <span class="sb-title">Design Patterns</span>
-          <span class="sb-subtitle">Java · Patidar</span>
-        </div>
-      </div>
-      <button id="sb-toggle" aria-label="Toggle sidebar">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M1 3.5A.5.5 0 0 1 1.5 3h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 3.5zm0 4A.5.5 0 0 1 1.5 7h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 7.5zm0 4A.5.5 0 0 1 1.5 11h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
-        </svg>
-      </button>
-    </header>
-
-    <div id="sb-search">
-      <svg class="search-ico" width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+        <circle cx="6" cy="6" r="5"/>
       </svg>
-      <input id="search-input" type="search" placeholder="Filter files…" autocomplete="off" spellcheck="false">
+      Free · Open Source · 21 Patterns
     </div>
 
-    <nav id="nav-tree">
-      <p class="state-line"><span class="spinner"></span> Loading…</p>
-    </nav>
+    <h1>Master Design Patterns Through <em>Real-World Examples</em></h1>
 
-  </aside>
+    <p class="hero-sub">
+      Learn the most important software design patterns through simple explanations,
+      visual diagrams, practical examples, and production-oriented use cases.
+    </p>
 
-  <!-- ── Viewer ──────────────────────────────────────────── -->
-  <main id="viewer">
-
-    <div id="viewer-bar">
-      <div id="breadcrumb"></div>
-      <a id="gh-btn" href="https://github.com/sprintooo/designPattern" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+    <div class="hero-actions">
+      <a href="dashboard.html" class="btn btn-primary btn-lg">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M6.22 8.72a.75.75 0 0 0 1.06 1.06l5.22-5.22v1.69a.75.75 0 0 0 1.5 0v-3.5a.75.75 0 0 0-.75-.75h-3.5a.75.75 0 0 0 0 1.5h1.69L6.22 8.72Z"/>
+          <path d="M3.5 6.75a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h6a.75.75 0 0 0 0-1.5H3.5v-5.25Z"/>
         </svg>
-        GitHub
+        Start Learning
+      </a>
+      <a href="patterns.html" class="btn btn-secondary btn-lg">
+        Explore Patterns
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06Z"/>
+        </svg>
       </a>
     </div>
 
-    <div id="code-wrap">
-      <div class="welcome">
-        <svg class="welcome-icon" width="48" height="48" viewBox="0 0 20 20" fill="none">
-          <rect x="2" y="2" width="7" height="7" rx="1.5" fill="#818cf8" opacity=".4"/>
-          <rect x="11" y="2" width="7" height="7" rx="1.5" fill="#a78bfa" opacity=".3"/>
-          <rect x="2" y="11" width="7" height="7" rx="1.5" fill="#a78bfa" opacity=".3"/>
-          <rect x="11" y="11" width="7" height="7" rx="1.5" fill="#818cf8" opacity=".2"/>
-        </svg>
-        <h2>Design Patterns Explorer</h2>
-        <p>Select a file from the sidebar to view source code.</p>
+    <!-- hero visual: abstract pattern diagram -->
+    <div class="hero-visual">
+      <svg viewBox="0 0 560 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pattern diagram showing object relationships">
+        <!-- lines first (behind boxes) -->
+        <line x1="140" y1="110" x2="210" y2="70"  stroke="#e2e8f0" stroke-width="1.5"/>
+        <line x1="140" y1="110" x2="210" y2="110" stroke="#e2e8f0" stroke-width="1.5"/>
+        <line x1="140" y1="110" x2="210" y2="150" stroke="#e2e8f0" stroke-width="1.5"/>
+        <line x1="350" y1="110" x2="420" y2="70"  stroke="#e2e8f0" stroke-width="1.5"/>
+        <line x1="350" y1="110" x2="420" y2="110" stroke="#e2e8f0" stroke-width="1.5"/>
+        <line x1="350" y1="110" x2="420" y2="150" stroke="#e2e8f0" stroke-width="1.5"/>
+        <line x1="60"  y1="110" x2="100" y2="110" stroke="#c7d2fe" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="270" y1="110" x2="310" y2="110" stroke="#c7d2fe" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+        <!-- Client box -->
+        <rect x="4" y="88" width="56" height="44" rx="6" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+        <text x="32" y="112" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#6366f1">Client</text>
+
+        <!-- Interface box -->
+        <rect x="100" y="88" width="110" height="44" rx="6" fill="#6366f1"/>
+        <text x="155" y="106" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="white">«interface»</text>
+        <text x="155" y="122" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="500" fill="white">Strategy</text>
+
+        <!-- Concrete A -->
+        <rect x="210" y="48" width="100" height="44" rx="6" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+        <text x="260" y="70" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#475569">CreditCard</text>
+        <text x="260" y="84" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#475569">Payment</text>
+        <!-- Concrete B -->
+        <rect x="210" y="88" width="100" height="44" rx="6" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+        <text x="260" y="114" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#475569">PayPal</text>
+        <text x="260" y="128" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#475569">Payment</text>
+        <!-- Concrete C -->
+        <rect x="210" y="128" width="100" height="44" rx="6" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+        <text x="260" y="154" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#475569">Crypto</text>
+        <text x="260" y="168" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#475569">Payment</text>
+
+        <!-- Subject box -->
+        <rect x="310" y="88" width="40" height="44" rx="6" fill="#0f172a"/>
+        <text x="330" y="112" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="600" fill="white" transform="rotate(-0 330 112)">Sub</text>
+
+        <!-- Observer interface -->
+        <rect x="360" y="88" width="60" height="44" rx="6" fill="#0f172a" opacity=".8"/>
+        <text x="390" y="106" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="600" fill="white">«iface»</text>
+        <text x="390" y="122" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#94a3b8">Observer</text>
+
+        <!-- Observer instances -->
+        <rect x="420" y="48"  width="80" height="30" rx="5" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+        <text x="460" y="67" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#475569">PhoneDisplay</text>
+        <rect x="420" y="95"  width="80" height="30" rx="5" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+        <text x="460" y="114" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#475569">TVDisplay</text>
+        <rect x="420" y="142" width="80" height="30" rx="5" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+        <text x="460" y="161" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#475569">Dashboard</text>
+
+        <!-- labels -->
+        <text x="32"  y="147" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8">Strategy</text>
+        <text x="330" y="147" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8">Observer</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS BAR ─────────────────────────────────────────────────────────── -->
+<section style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num">21</span>
+        <span class="stat-label">Design Patterns</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Categories</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" id="stat-progress">0</span>
+        <span class="stat-label">Completed by You</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Free</span>
+        <span class="stat-label">Always & Forever</span>
       </div>
     </div>
+  </div>
+</section>
 
-  </main>
+<!-- ── CATEGORIES ─────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Three Families of Patterns</h2>
+      <p class="section-sub">Organized by purpose — start from the beginning or jump to what you need.</p>
+    </div>
+    <div class="cat-cards">
+      <a href="patterns.html?cat=creational" class="card card-hover cat-card">
+        <div class="cat-card-icon" style="background:#f5f3ff;color:#8b5cf6;">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M3.5 2A1.5 1.5 0 0 0 2 3.5v4A1.5 1.5 0 0 0 3.5 9h4A1.5 1.5 0 0 0 9 7.5v-4A1.5 1.5 0 0 0 7.5 2h-4ZM11 3.5A1.5 1.5 0 0 1 12.5 2h4A1.5 1.5 0 0 1 18 3.5v4A1.5 1.5 0 0 1 16.5 9h-4A1.5 1.5 0 0 1 11 7.5v-4ZM2 12.5A1.5 1.5 0 0 1 3.5 11h4A1.5 1.5 0 0 1 9 12.5v4A1.5 1.5 0 0 1 7.5 18h-4A1.5 1.5 0 0 1 2 16.5v-4ZM12.5 11A1.5 1.5 0 0 0 11 12.5v4A1.5 1.5 0 0 0 12.5 18h4a1.5 1.5 0 0 0 1.5-1.5v-4a1.5 1.5 0 0 0-1.5-1.5h-4Z"/>
+          </svg>
+        </div>
+        <h3>Creational</h3>
+        <p>Control how objects are created. Decouple instantiation logic from the rest of your code.</p>
+        <span class="cat-card-count">5 patterns · Singleton, Factory, Builder…</span>
+      </a>
 
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/java.min.js"></script>
-<script src="app.js"></script>
+      <a href="patterns.html?cat=structural" class="card card-hover cat-card">
+        <div class="cat-card-icon" style="background:#f0f9ff;color:#0ea5e9;">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M1 2.75A.75.75 0 0 1 1.75 2h16.5a.75.75 0 0 1 0 1.5H18v8.75A2.25 2.25 0 0 1 15.75 14.5h-1.071a3.502 3.502 0 0 1-3.179 2 3.502 3.502 0 0 1-3.179-2H7.25A2.25 2.25 0 0 1 5 12.25V3.5H1.75A.75.75 0 0 1 1 2.75ZM6.5 3.5v8.75c0 .414.336.75.75.75h1.32a3.516 3.516 0 0 1 2.93-1.5c1.195 0 2.246.598 2.93 1.5h1.32a.75.75 0 0 0 .75-.75V3.5h-10Z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <h3>Structural</h3>
+        <p>Compose objects and classes into larger structures while keeping them flexible and efficient.</p>
+        <span class="cat-card-count">7 patterns · Adapter, Decorator, Facade…</span>
+      </a>
+
+      <a href="patterns.html?cat=behavioral" class="card card-hover cat-card">
+        <div class="cat-card-icon" style="background:#f0fdf4;color:#10b981;">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M10 2a.75.75 0 0 1 .75.75v.258a33.186 33.186 0 0 1 6.668 1.318.75.75 0 1 1-.336 1.46 31.641 31.641 0 0 0-6.332-1.25V6.5a.75.75 0 0 1-1.5 0V4.535a31.641 31.641 0 0 0-6.332 1.25.75.75 0 1 1-.336-1.46 33.186 33.186 0 0 1 6.668-1.318V2.75A.75.75 0 0 1 10 2Z"/>
+            <path fill-rule="evenodd" d="M3.919 8.615a1.75 1.75 0 0 1 1.703-1.342h8.756a1.75 1.75 0 0 1 1.703 1.342l.786 3.537a31.053 31.053 0 0 0-6.867-.773 31.053 31.053 0 0 0-6.867.773l.786-3.537Zm.791 5.11a29.491 29.491 0 0 1 10.58 0l-.224 2.24a1.75 1.75 0 0 1-1.74 1.535H6.674a1.75 1.75 0 0 1-1.74-1.535l-.224-2.24Z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <h3>Behavioral</h3>
+        <p>Define how objects communicate and distribute responsibilities at runtime.</p>
+        <span class="cat-card-count">9 patterns · Strategy, Observer, Command…</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY THIS COURSE ─────────────────────────────────────────────────────── -->
+<section class="section" style="background:var(--surface); border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Why Learn Design Patterns?</h2>
+      <p class="section-sub">Shared vocabulary, proven solutions, better code.</p>
+    </div>
+    <div class="features-grid">
+      <div class="card feature-tile">
+        <div class="feature-icon">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5Z"/>
+          </svg>
+        </div>
+        <h3>Understand the Problem First</h3>
+        <p>Every lesson starts with the problem before introducing the pattern. You'll know why each pattern exists.</p>
+      </div>
+
+      <div class="card feature-tile">
+        <div class="feature-icon">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8.878.392a1.75 1.75 0 0 0-1.756 0l-5.25 3.045A1.75 1.75 0 0 0 1 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 0 0 1.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392ZM7.875 1.69a.25.25 0 0 1 .25 0l4.63 2.685L8 7.133 3.245 4.375l4.63-2.685ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432v5.516Z"/>
+          </svg>
+        </div>
+        <h3>Real Java Code</h3>
+        <p>Working implementations, not pseudocode. Patterns with repo code link directly to the source.</p>
+      </div>
+
+      <div class="card feature-tile">
+        <div class="feature-icon">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/>
+          </svg>
+        </div>
+        <h3>When to Use &amp; Avoid</h3>
+        <p>Every pattern includes clear guidance on the right context — and equally important, when not to use it.</p>
+      </div>
+
+      <div class="card feature-tile">
+        <div class="feature-icon">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5Zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5Zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5Zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5Z"/>
+          </svg>
+        </div>
+        <h3>Track Your Progress</h3>
+        <p>Mark patterns as completed and track your learning across all three categories. Stored locally, no account needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DARK CTA ─────────────────────────────────────────────────────────── -->
+<section class="section dark-section">
+  <div class="container text-center">
+    <h2 class="section-title" style="color:#f8fafc;margin-bottom:12px;">Ready to start?</h2>
+    <p class="section-sub" style="color:#94a3b8;margin:0 auto 32px;">
+      Pick your first pattern or check the roadmap for a guided path from beginner to advanced.
+    </p>
+    <div class="hero-actions">
+      <a href="pattern.html?id=strategy" class="btn btn-primary btn-lg">Begin with Strategy</a>
+      <a href="roadmap.html" class="btn btn-lg" style="background:rgba(255,255,255,.07);color:#e2e8f0;border:1px solid rgba(255,255,255,.12);">
+        View Roadmap
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/nav.js"></script>
+<script>
+  injectNav('');
+  injectFooter();
+  document.getElementById('stat-progress').textContent = Progress.getCount();
+</script>
 </body>
 </html>
