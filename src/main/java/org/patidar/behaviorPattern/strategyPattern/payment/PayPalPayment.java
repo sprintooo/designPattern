@@ -1,4 +1,4 @@
-package org.patidar.behaviorPattern.strategyPattern.p1;
+package org.patidar.behaviorPattern.strategyPattern.payment;
 
 public class PayPalPayment implements PaymentProcessor {
     @Override

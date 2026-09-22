@@ -1,4 +1,4 @@
-package org.patidar.behaviorPattern.strategyPattern.p1;
+package org.patidar.behaviorPattern.strategyPattern.payment;
 
 public interface PaymentProcessor {
     void makePayment(int amount);
