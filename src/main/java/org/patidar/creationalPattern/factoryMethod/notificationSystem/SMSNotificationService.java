@@ -1,6 +1,6 @@
 package org.patidar.creationalPattern.factoryMethod.notificationSystem;
 
-public class SMSNotificationService extends NotificationService {
+public class SMSNotificationService implements NotificationService {
     @Override
     public Notification createNotification(String message) {
         return new SMSNotification();
