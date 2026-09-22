@@ -252,7 +252,7 @@ HttpRequest request = new HttpRequest(
     null,
     true
 );`,
-    solutionDescription: `The Builder pattern provides a fluent API for constructing objects step by step. Each method sets one field and returns the builder itself, enabling method chaining. The final `build()` call validates and returns the completed object.`,
+    solutionDescription: `The Builder pattern provides a fluent API for constructing objects step by step. Each method sets one field and returns the builder itself, enabling method chaining. The final build() call validates and returns the completed object.`,
     solutionDiagram: `HttpRequest.Builder
   .url("...")
   .method("POST")
