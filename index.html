@@ -6,71 +6,79 @@
   <title>Design Patterns — Patidar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="app">
+<div id="app">
 
-    <aside id="sidebar">
-      <div id="sidebar-header">
-        <div class="logo-wrap">
-          <span class="logo-glyph">◈</span>
-          <div class="logo-text">
-            <span class="logo-title">Design Patterns</span>
-            <span class="logo-sub">Java · Patidar</span>
-          </div>
-        </div>
-        <button id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar">
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <line x1="2" y1="4.5" x2="13" y2="4.5"/>
-            <line x1="2" y1="7.5" x2="13" y2="7.5"/>
-            <line x1="2" y1="10.5" x2="13" y2="10.5"/>
-          </svg>
-        </button>
-      </div>
+  <!-- ── Sidebar ─────────────────────────────────────────── -->
+  <aside id="sidebar">
 
-      <div id="search-wrap">
-        <svg class="search-icon" width="13" height="13" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-          <circle cx="6.5" cy="6.5" r="4.5"/>
-          <line x1="10.5" y1="10.5" x2="13" y2="13"/>
+    <header id="sb-head">
+      <div class="sb-logo">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="2" y="2" width="7" height="7" rx="1.5" fill="#818cf8"/>
+          <rect x="11" y="2" width="7" height="7" rx="1.5" fill="#a78bfa" opacity=".7"/>
+          <rect x="2" y="11" width="7" height="7" rx="1.5" fill="#a78bfa" opacity=".7"/>
+          <rect x="11" y="11" width="7" height="7" rx="1.5" fill="#818cf8" opacity=".5"/>
         </svg>
-        <input id="search-input" type="text" placeholder="Filter files…" autocomplete="off" spellcheck="false">
-        <button id="search-clear" aria-label="Clear search">×</button>
-      </div>
-
-      <nav id="nav-tree">
-        <div class="state-msg loading-msg">
-          <span class="spinner"></span>
-          Loading patterns…
-        </div>
-      </nav>
-    </aside>
-
-    <main id="viewer">
-      <div id="viewer-bar">
-        <div id="breadcrumb"></div>
-        <a id="gh-link" href="https://github.com/sprintooo/designPattern" target="_blank" rel="noopener" title="View repository on GitHub">
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="currentColor">
-            <path d="M7.5 0C3.36 0 0 3.36 0 7.5c0 3.315 2.148 6.122 5.128 7.116.375.069.513-.159.513-.356 0-.175-.006-.638-.009-1.253-2.088.453-2.529-.999-2.529-.999-.341-.866-.833-1.097-.833-1.097-.681-.465.052-.456.052-.456.753.053 1.149.774 1.149.774.669 1.146 1.754.815 2.183.623.068-.484.262-.815.476-1.003-1.664-.189-3.413-.832-3.413-3.703 0-.818.293-1.487.773-2.011-.078-.189-.335-.952.073-1.984 0 0 .63-.201 2.063.769A7.184 7.184 0 0 1 7.5 3.756a7.19 7.19 0 0 1 1.875.252c1.432-.97 2.061-.769 2.061-.769.41 1.032.152 1.795.075 1.984.481.524.772 1.193.772 2.011 0 2.879-1.752 3.512-3.42 3.697.269.231.508.688.508 1.386 0 1.002-.009 1.81-.009 2.055 0 .2.135.432.516.359C12.854 13.619 15 10.814 15 7.5 15 3.36 11.64 0 7.5 0z"/>
-          </svg>
-          GitHub
-        </a>
-      </div>
-
-      <div id="code-container">
-        <div class="welcome-state">
-          <div class="welcome-glyph">◈</div>
-          <h2>Design Patterns Explorer</h2>
-          <p>Select a file from the sidebar to view its source code.</p>
+        <div class="sb-title-group">
+          <span class="sb-title">Design Patterns</span>
+          <span class="sb-subtitle">Java · Patidar</span>
         </div>
       </div>
-    </main>
+      <button id="sb-toggle" aria-label="Toggle sidebar">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M1 3.5A.5.5 0 0 1 1.5 3h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 3.5zm0 4A.5.5 0 0 1 1.5 7h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 7.5zm0 4A.5.5 0 0 1 1.5 11h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </button>
+    </header>
 
-  </div>
+    <div id="sb-search">
+      <svg class="search-ico" width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg>
+      <input id="search-input" type="search" placeholder="Filter files…" autocomplete="off" spellcheck="false">
+    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/java.min.js"></script>
-  <script src="app.js"></script>
+    <nav id="nav-tree">
+      <p class="state-line"><span class="spinner"></span> Loading…</p>
+    </nav>
+
+  </aside>
+
+  <!-- ── Viewer ──────────────────────────────────────────── -->
+  <main id="viewer">
+
+    <div id="viewer-bar">
+      <div id="breadcrumb"></div>
+      <a id="gh-btn" href="https://github.com/sprintooo/designPattern" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+
+    <div id="code-wrap">
+      <div class="welcome">
+        <svg class="welcome-icon" width="48" height="48" viewBox="0 0 20 20" fill="none">
+          <rect x="2" y="2" width="7" height="7" rx="1.5" fill="#818cf8" opacity=".4"/>
+          <rect x="11" y="2" width="7" height="7" rx="1.5" fill="#a78bfa" opacity=".3"/>
+          <rect x="2" y="11" width="7" height="7" rx="1.5" fill="#a78bfa" opacity=".3"/>
+          <rect x="11" y="11" width="7" height="7" rx="1.5" fill="#818cf8" opacity=".2"/>
+        </svg>
+        <h2>Design Patterns Explorer</h2>
+        <p>Select a file from the sidebar to view source code.</p>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/java.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
