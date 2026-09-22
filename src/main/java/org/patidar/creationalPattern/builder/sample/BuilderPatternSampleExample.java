@@ -1,4 +1,4 @@
-package org.patidar.creationalPattern.builder;
+package org.patidar.creationalPattern.builder.sample;
 
 import java.util.Map;
 
