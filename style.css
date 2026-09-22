@@ -1,0 +1,283 @@
+:root {
+  --bg-sidebar: #1a1d23;
+  --bg-sidebar-hover: #252930;
+  --bg-sidebar-active: #2d3748;
+  --bg-main: #0d1117;
+  --bg-header: #161b22;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-accent: #58a6ff;
+  --border: #30363d;
+  --folder-icon: #e3b341;
+  --file-dot: #58a6ff;
+  --sidebar-width: 300px;
+  --header-height: 48px;
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 14px;
+}
+
+#app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+
+#sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: width 0.2s ease, min-width 0.2s ease;
+}
+
+#sidebar.collapsed {
+  width: var(--header-height);
+  min-width: var(--header-height);
+}
+
+#sidebar.collapsed #nav-tree { display: none; }
+#sidebar.collapsed .logo { display: none; }
+
+#sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  height: var(--header-height);
+  background: var(--bg-header);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#sidebar-toggle {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+#sidebar-toggle:hover { background: var(--bg-sidebar-hover); color: var(--text-primary); }
+
+#nav-tree {
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  padding: 8px 0;
+}
+
+#nav-tree::-webkit-scrollbar { width: 4px; }
+#nav-tree::-webkit-scrollbar-track { background: transparent; }
+#nav-tree::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── Tree nodes ── */
+
+#nav-tree ul { list-style: none; }
+
+#nav-tree li { display: block; }
+
+#nav-tree details > summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  list-style: none;
+}
+
+#nav-tree details > summary::-webkit-details-marker { display: none; }
+
+#nav-tree details > summary::before {
+  content: "▶";
+  font-size: 9px;
+  color: var(--folder-icon);
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+
+#nav-tree details[open] > summary::before { transform: rotate(90deg); }
+
+#nav-tree details > summary:hover {
+  background: var(--bg-sidebar-hover);
+  color: var(--text-primary);
+}
+
+/* depth-based indent for nested folders */
+#nav-tree li[data-depth="0"] > details > summary { padding-left: 12px; font-size: 12.5px; }
+#nav-tree li[data-depth="1"] > details > summary { padding-left: 28px; font-size: 12px; text-transform: none; letter-spacing: 0; font-weight: 500; }
+#nav-tree li[data-depth="2"] > details > summary { padding-left: 44px; font-size: 12px; text-transform: none; letter-spacing: 0; font-weight: 500; }
+#nav-tree li[data-depth="3"] > details > summary { padding-left: 60px; font-size: 12px; text-transform: none; letter-spacing: 0; font-weight: 500; }
+
+/* File items */
+#nav-tree li.file {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#nav-tree li.file:hover {
+  background: var(--bg-sidebar-hover);
+  color: var(--text-primary);
+}
+
+#nav-tree li.file.active {
+  background: var(--bg-sidebar-active);
+  color: var(--text-accent);
+}
+
+.file-dot {
+  color: var(--file-dot);
+  font-size: 8px;
+  flex-shrink: 0;
+}
+
+.file-name { overflow: hidden; text-overflow: ellipsis; }
+
+/* ── Viewer pane ── */
+
+#viewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-main);
+}
+
+#breadcrumb {
+  padding: 10px 20px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--bg-header);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+}
+
+.crumb { color: var(--text-secondary); }
+.crumb.current { color: var(--text-primary); font-weight: 500; }
+.sep { margin: 0 4px; color: var(--border); }
+
+#code-container {
+  flex: 1;
+  overflow: auto;
+  padding: 0;
+}
+
+#code-container::-webkit-scrollbar { width: 6px; height: 6px; }
+#code-container::-webkit-scrollbar-track { background: transparent; }
+#code-container::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+#code-container pre {
+  margin: 0;
+  min-height: 100%;
+  border-radius: 0;
+}
+
+#code-container pre code.hljs {
+  padding: 24px 28px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 100%;
+  display: block;
+}
+
+/* ── States ── */
+
+.welcome {
+  padding: 60px 40px;
+  color: var(--text-secondary);
+}
+
+.welcome h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.loading-msg, .error-msg {
+  padding: 16px 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.error-msg { color: #f85149; }
+
+#code-container .loading-msg {
+  padding: 60px 40px;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 640px) {
+  :root { --sidebar-width: 260px; }
+
+  #sidebar {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    transform: translateX(0);
+    transition: transform 0.2s ease, width 0.2s ease;
+  }
+
+  #sidebar.collapsed {
+    transform: translateX(calc(-1 * var(--sidebar-width)));
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+  }
+
+  #sidebar.collapsed #nav-tree { display: block; }
+  #sidebar.collapsed .logo { display: block; }
+}

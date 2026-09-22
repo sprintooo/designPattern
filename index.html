@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Patterns</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div id="sidebar-header">
+        <span class="logo">Design Patterns</span>
+        <button id="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+      </div>
+      <nav id="nav-tree">
+        <div class="loading-msg">Loading patterns&hellip;</div>
+      </nav>
+    </aside>
+
+    <main id="viewer">
+      <div id="breadcrumb"></div>
+      <div id="code-container">
+        <div class="welcome">
+          <h2>Select a pattern file</h2>
+          <p>Browse design patterns in the sidebar and click any file to view the source code.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/java.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
