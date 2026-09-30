@@ -2,7 +2,7 @@
 
 A free, open-source course website for learning software design patterns through real Java implementations, visual diagrams, and production-oriented examples.
 
-🌐 **Live site:** [sprintooo.github.io/designPattern](https://sprintooo.github.io/designPattern/)
+🌐 **Live site:** [himanpatidar.github.io/designPattern](https://himanpatidar.github.io/designPattern/)
 
 ---
 
